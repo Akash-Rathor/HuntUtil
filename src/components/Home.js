@@ -25,7 +25,7 @@ export default function Home(props) {
         await fetch("https://api.imgur.com/3/image", requestOptions).then(response => response.text())
         .then(result => console.log(result))
         .then(data => {img.src = Converting})
-        .then(data => {setImageUrl(data.data.link)})
+        .then(data => {setImageUrl(data.data.link.replace('\/','/'))})
         .then(data => {setdeletehash(data.data.deletehash)})
         .catch(error => {
             if (error){
@@ -37,7 +37,7 @@ export default function Home(props) {
                 setdisplay('block')
             }
         });
-        setdisplay('none')
+        // setdisplay('none')
     }
 
 
